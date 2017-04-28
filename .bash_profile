@@ -27,27 +27,7 @@ then
   source ~/.bashrc
 fi
 
-# Route local traffic over ethernet when using certain WiFi networks w/o proxy.
-function route_add() {
-  sudo route add -net 10.0.0.0/8 -interface en0
-}
 
-# Delete the route added above.
-function route_delete() {
-  sudo route delete 10.0.0.0
-}
-
-# Route IRC traffic through one of my servers.
-# Use SOCKS5 settings 'localhost' and 6667 for server/port.
-function irc_proxy() {
-  ssh -vD 6667 geerlingguy@atl1.servercheck.in
-}
-
-# Syntax-highlight code for copying and pasting.
-# Requires highlight (`brew install highlight`).
-function pretty() {
-  pbpaste | highlight --syntax=$1 -O rtf | pbcopy
-}
 
 # Git aliases.
 alias gs='git status'
@@ -83,13 +63,6 @@ if [ -f $brew_prefix/etc/bash_completion ]; then
   . $brew_prefix/etc/bash_completion
 fi
 
-# Use brew-installed PHP binaries.
-export PATH="$brew_prefix/opt/php56/bin:$PATH"
-
-# Use nvm.
-export NVM_DIR="$HOME/.nvm"
-. "$brew_prefix/opt/nvm/nvm.sh"
-
 # Vagrant configuration.
 # export VAGRANT_DEFAULT_PROVIDER='virtualbox'
 
@@ -122,20 +95,5 @@ prod_command_trap () {
 }
 shopt -s extdebug
 trap prod_command_trap DEBUG
-
-function blt() {
-  if [ "`git rev-parse --show-cdup 2> /dev/null`" != "" ]; then
-    GIT_ROOT=$(git rev-parse --show-cdup)
-  else
-    GIT_ROOT="."
-  fi
-
-  if [ -f "$GIT_ROOT/vendor/bin/blt" ]; then
-    $GIT_ROOT/vendor/bin/blt "$@"
-  else
-    echo "You must run this command from within a BLT-generated project repository."
-    exit 1
-  fi
-}
 
 export HOMEBREW_GITHUB_API_TOKEN="2d3dcc7db103f03e5ac531548bbca8ae2e88aaeb"
