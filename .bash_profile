@@ -137,3 +137,5 @@ function blt() {
     exit 1
   fi
 }
+
+export HOMEBREW_GITHUB_API_TOKEN="2d3dcc7db103f03e5ac531548bbca8ae2e88aaeb"
