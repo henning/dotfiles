@@ -96,4 +96,4 @@ prod_command_trap () {
 shopt -s extdebug
 trap prod_command_trap DEBUG
 
-export HOMEBREW_GITHUB_API_TOKEN="2d3dcc7db103f03e5ac531548bbca8ae2e88aaeb"
+export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
