@@ -33,29 +33,26 @@ fi
 alias gs='git status'
 alias gc='git commit'
 alias gp='git pull --rebase'
-alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
-alias gsd='git svn dcommit'
-alias gsfr='git svn fetch && git svn rebase'
 
 # Git upstream branch syncer.
 # Usage: gsync master (checks out master, pull upstream, push origin).
-function gsync() {
-  if [[ ! "$1" ]] ; then
-      echo "You must supply a branch."
-      return 0
-  fi
-
-  BRANCHES=$(git branch --list $1)
-  if [ ! "$BRANCHES" ] ; then
-     echo "Branch $1 does not exist."
-     return 0
-  fi
-
-  git checkout "$1" && \
-  git pull upstream "$1" && \
-  git push origin "$1"
-}
+#function gsync() {
+#  if [[ ! "$1" ]] ; then
+#      echo "You must supply a branch."
+#      return 0
+#  fi
+#
+#  BRANCHES=$(git branch --list $1)
+#  if [ ! "$BRANCHES" ] ; then
+#     echo "Branch $1 does not exist."
+#     return 0
+#  fi
+#
+#  git checkout "$1" && \
+#  git pull upstream "$1" && \
+#  git push origin "$1"
+#}
 
 # Turn on Git autocomplete.
 brew_prefix=`brew --prefix`
@@ -64,7 +61,7 @@ if [ -f $brew_prefix/etc/bash_completion ]; then
 fi
 
 # Vagrant configuration.
-# export VAGRANT_DEFAULT_PROVIDER='virtualbox'
+export VAGRANT_DEFAULT_PROVIDER='virtualbox'
 
 # Disable cowsay in Ansible.
 export ANSIBLE_NOCOWS=1
@@ -80,20 +77,20 @@ knownrm() {
 }
 
 # Ask for confirmation when 'prod' is in a command string.
-prod_command_trap () {
-  if [[ $BASH_COMMAND == *prod* ]]
-  then
-    read -p "Are you sure you want to run this command on prod [Y/n]? " -n 1 -r
-    if [[ $REPLY =~ ^[Yy]$ ]]
-    then
-      echo -e "\nRunning command \"$BASH_COMMAND\" \n"
-    else
-      echo -e "\nCommand was not run.\n"
-      return 1
-    fi
-  fi
-}
-shopt -s extdebug
-trap prod_command_trap DEBUG
+#prod_command_trap () {
+#  if [[ $BASH_COMMAND == *prod* ]]
+#  then
+#    read -p "Are you sure you want to run this command on prod [Y/n]? " -n 1 -r
+#    if [[ $REPLY =~ ^[Yy]$ ]]
+#    then
+#      echo -e "\nRunning command \"$BASH_COMMAND\" \n"
+#    else
+#      echo -e "\nCommand was not run.\n"
+#      return 1
+#    fi
+#  fi
+#}
+#shopt -s extdebug
+#trap prod_command_trap DEBUG
 
 export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
