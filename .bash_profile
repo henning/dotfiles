@@ -79,3 +79,6 @@ alias nvmload='source $(brew --prefix nvm)/nvm.sh'
 
 
 export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
+
+export PS1="$PS1\$(git-radar --bash --fetch) "
+
