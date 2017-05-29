@@ -27,8 +27,6 @@ then
   source ~/.bashrc
 fi
 
-
-
 # Git aliases.
 alias gs='git status'
 alias gc='git commit'
@@ -37,22 +35,22 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 
 # Git upstream branch syncer.
 # Usage: gsync master (checks out master, pull upstream, push origin).
-function gsync() {
-  if [[ ! "$1" ]] ; then
-      echo "You must supply a branch."
-      return 0
-  fi
-
-  BRANCHES=$(git branch --list $1)
-  if [ ! "$BRANCHES" ] ; then
-     echo "Branch $1 does not exist."
-     return 0
-  fi
-
-  git checkout "$1" && \
-  git pull upstream "$1" && \
-  git push origin "$1"
-}
+#function gsync() {
+#  if [[ ! "$1" ]] ; then
+#      echo "You must supply a branch."
+#      return 0
+#  fi
+#
+#  BRANCHES=$(git branch --list $1)
+#  if [ ! "$BRANCHES" ] ; then
+#     echo "Branch $1 does not exist."
+#     return 0
+#  fi
+#
+#  git checkout "$1" && \
+#  git pull upstream "$1" && \
+#  git push origin "$1"
+#}
 
 # Turn on Git autocomplete.
 brew_prefix=`brew --prefix`
@@ -61,7 +59,7 @@ if [ -f $brew_prefix/etc/bash_completion ]; then
 fi
 
 # Vagrant configuration.
-# export VAGRANT_DEFAULT_PROVIDER='virtualbox'
+export VAGRANT_DEFAULT_PROVIDER='virtualbox'
 
 # Disable cowsay in Ansible.
 export ANSIBLE_NOCOWS=1
@@ -75,5 +73,9 @@ knownrm() {
     sed -i '' "$1d" ~/.ssh/known_hosts
   fi
 }
+
+
+alias nvmload='source $(brew --prefix nvm)/nvm.sh'
+
 
 export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
