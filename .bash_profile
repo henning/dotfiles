@@ -12,8 +12,7 @@ export PS1="\[\e[0;32m\]\]\[\] \[\e[1;32m\]\]\t \[\e[0;2m\]\]\w \[\e[0m\]\]\[
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-# Custom $PATH with extra locations.
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 
 # Include alias file (if present) containing aliases for ssh, etc.
 if [ -f ~/.bash_aliases ]
@@ -74,11 +73,10 @@ knownrm() {
   fi
 }
 
-
 alias nvmload='source $(brew --prefix nvm)/nvm.sh'
-
 
 export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
 
 export PS1="$PS1\$(git-radar --bash --fetch) "
 
+export PATH=./node_modules/.bin/:$PATH
