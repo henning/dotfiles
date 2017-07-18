@@ -6,7 +6,8 @@
 #
 
 # Nicer prompt.
-export PS1="\[\e[0;32m\]\]\[\] \[\e[1;32m\]\]\t \[\e[0;2m\]\]\w \[\e[0m\]\]\[$\] "
+#export PS1="\[\e[0;32m\]\]\[\] \[\e[1;32m\]\]\t \[\e[0;2m\]\]\w \[\e[0m\]\]\[$\] "
+#export PS1="\[\e[0;32m\]\] \[\e[0;2m\]\]\w \[\e[0m\]\]"
 
 # Use colors.
 export CLICOLOR=1
@@ -77,6 +78,11 @@ alias nvmload='source $(brew --prefix nvm)/nvm.sh'
 
 export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
 
-export PS1="$PS1\$(git-radar --bash --fetch) "
+#export PS1="\$(git-radar --bash --fetch)\n$PS1\n \[$\] "
+#export PS1="\$(git-radar --bash --fetch) - $PS1 \[$\] "
 
 export PATH=./node_modules/.bin/:$PATH
+
+export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
