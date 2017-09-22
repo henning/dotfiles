@@ -88,7 +88,14 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/henning/opt/google-cloud-sdk/path.bash.inc' ]; then source '/Users/henning/opt/google-cloud-sdk/path.bash.inc'; fi
+if [ -f '/Users/henning/opt/google-cloud-sdk/path.bash.inc' ]; then 
+  source '/Users/henning/opt/google-cloud-sdk/path.bash.inc'; 
+fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/henning/opt/google-cloud-sdk/completion.bash.inc' ]; then source '/Users/henning/opt/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f '/Users/henning/opt/google-cloud-sdk/completion.bash.inc' ]; then 
+  source '/Users/henning/opt/google-cloud-sdk/completion.bash.inc'; 
+fi
+
+export PYTHONSTARTUP=$HOME/.pythonrc.py
+
