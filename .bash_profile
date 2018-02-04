@@ -84,7 +84,6 @@ export HOMEBREW_GITHUB_API_TOKEN="f3a3ccb9c7f27064e06cf02d533c0f1f6f918a5c"
 export PATH=./node_modules/.bin/:$PATH
 
 export WORKON_HOME=$HOME/.virtualenvs
-#export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -98,4 +97,7 @@ if [ -f '/Users/henning/opt/google-cloud-sdk/completion.bash.inc' ]; then
 fi
 
 export PYTHONSTARTUP=$HOME/.pythonrc.py
+
+# use pip installed python packages
+export PATH=~/Library/Python/2.7/bin/:$PATH
 
